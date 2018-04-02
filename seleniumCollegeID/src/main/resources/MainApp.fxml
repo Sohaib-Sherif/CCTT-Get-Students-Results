@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="394.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainAppController">
+   <bottom>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="304.0" layoutY="59.0" prefHeight="75.0" prefWidth="326.0" spacing="20.0">
+               <children>
+                  <Button fx:id="start" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="34.0" prefWidth="56.0" />
+                  <Button fx:id="stop" mnemonicParsing="false" prefHeight="34.0" prefWidth="56.0" />
+                  <Button fx:id="setPath" layoutX="106.0" layoutY="30.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="56.0" />
+                  <Button fx:id="setDatabase" layoutX="182.0" layoutY="30.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="56.0" />
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="42.0" layoutY="83.0" prefHeight="28.0" prefWidth="262.0" spacing="5.0">
+               <children>
+                  <Label text="From">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+                  <ComboBox fx:id="from" prefHeight="25.0" prefWidth="49.0" />
+                  <Label text="To">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+                  <ComboBox fx:id="To" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="49.0" />
+                  <Label text="ID Key">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+                  <ChoiceBox fx:id="groupID" prefHeight="25.0" prefWidth="49.0" />
+               </children>
+            </HBox>
+            <Label fx:id="databaseLED" layoutX="14.0" layoutY="154.0" />
+            <Label fx:id="pathOfFile" contentDisplay="RIGHT" layoutX="351.0" layoutY="154.0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="184.0" layoutY="78.0" prefHeight="141.0" prefWidth="265.0">
+               <children>
+                  <ProgressBar fx:id="progress" prefHeight="18.0" prefWidth="270.0" progress="0.0" />
+                  <HBox>
+                     <VBox.margin>
+                        <Insets left="60.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label prefHeight="35.0" prefWidth="70.0" text="Current ID:">
+                           <font>
+                              <Font name="Calibri" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="currentID" prefHeight="35.0" prefWidth="53.0">
+                           <font>
+                              <Font name="Calibri" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="message" layoutX="50.0" layoutY="88.0" prefHeight="29.0" prefWidth="55.0">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="105.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="60.0" />
+               </padding>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="College Portal" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Segoe UI Semilight" size="54.0" />
+         </font>
+      </Text>
+   </top>
+</BorderPane>
