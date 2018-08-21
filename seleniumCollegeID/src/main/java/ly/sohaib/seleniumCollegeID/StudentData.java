@@ -4,6 +4,7 @@ import java.util.Objects;
 /**
  * model class of the student, applies the singleton pattern.<br>
  * the private constructor calls the {@link StudentUtils}.init() method.
+ * UPDATE 19/8/2018 : This is not a typical model class nor is it a bean.
  * @author Sohaib
  * @version 1.0.0
  */

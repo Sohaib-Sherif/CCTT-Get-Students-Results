@@ -20,12 +20,14 @@ public class DBUtils {
 	private static double OVERALL_PERCENTAGE;
 	private static List<String> SUBJECTNAME = new ArrayList<>();
 	// add a year خريف2017 column to the table.
+	//Done, but should be changed each semester to match the term name.
+	private static String TERM ="ربيع 2018";//could have just inserted it as a string right in the method below
 
 	
 	public static void updateStudentTable() {
 		try{
 			context.insertInto(table("INFORMATION_SCHEMA.STUDENT"))
-				   .values(ID, NAME, SEMESTER, DEPARTMENT)
+				   .values(ID, NAME, SEMESTER, DEPARTMENT, TERM)
 			       .execute();
 		} catch (DataAccessException db) {
 			db.printStackTrace();
@@ -36,7 +38,7 @@ public class DBUtils {
 	public static void updateResultTable() {
 		for(int i = 0; i<CODE.size(); i++) {
 			context.insertInto(table("INFORMATION_SCHEMA.RESULT"))
-				   .values(ID, CODE.get(i), SUBJECTNAME.get(i), GRADE.get(i))
+				   .values(ID, CODE.get(i), SUBJECTNAME.get(i), GRADE.get(i), TERM)
 				   .execute();
 		}
 		CODE.clear();
@@ -46,7 +48,7 @@ public class DBUtils {
 	
 	public static void updatePercentageTable() {
 		context.insertInto(table("INFORMATION_SCHEMA.PERCENTAGE"))
-			   .values(ID, SEMESTER_PERCENTAGE, OVERALL_PERCENTAGE)
+			   .values(ID, SEMESTER_PERCENTAGE, OVERALL_PERCENTAGE, TERM)
 			   .execute();
 	}
 

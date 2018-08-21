@@ -22,7 +22,8 @@ import org.openqa.selenium.*;
  */
 public class GrabEm {
 	private static final String URL = "http://cctt.edu.ly/result/index.php";
-	private static final String DESKTOP_FOLDER = "/Users/Sohaib/Desktop/Debug Images/";
+	//change the folder name every semester
+	private static final String DESKTOP_FOLDER = "/Users/Sohaib/Desktop/Debug Images/نتيجة ربيع 2018/";
 	private WebDriver driver;
 	private static StudentData student = StudentData.getInstance();
 	private WebElement birthdayElement;
@@ -145,9 +146,14 @@ public class GrabEm {
 	    }
 	}
 	
+	/**
+	 * 
+	 * @return The student singleton object
+	 */
 	public StudentData getStudent() {
 		return student;
 	}
+	
 	/**
 	 * <b>Note:</b> I made a try/catch statement here to handle the error that's not handled by the
 	 * checkError method. why? because the checkError method checks inside an if statement, and when
@@ -209,6 +215,10 @@ public class GrabEm {
 	/******************************************************************************************************
 	 *  everything works. this is for the db thing which was annoying. 
 	 ******************************************************************************************************/
+	/**
+	 * this actually does more than prepare, it actually inserts the data to the DB by calling
+	 * DBUtils.update*Table() methods
+	 */
 	public void prepareDB() {
 		List<WebElement> info = getInfo();
 		List<WebElement> grades = getGrades();
@@ -261,5 +271,32 @@ public class GrabEm {
 		
 		DBUtils.setSEMESTER_PERCENTAGE(Double.valueOf(s_percent));
 		DBUtils.setOVERALL_PERCENTAGE(Double.parseDouble(o_percent));	
+	}
+	
+	/**
+	 * Append the correct combination of ID and birthday to the Birthdays&IDs.txt file
+	 * @param ID The ID of the student
+	 * @param birthday his birthday
+	 */
+	public void updateKnownFile(String ID, String birthday) {
+		File knownFile = new File("C:/Users/Sohaib/Desktop/Debug Images/Birthdays&IDs.txt");
+		try {
+			FileUtils.writeStringToFile(knownFile,ID+" "+birthday+System.lineSeparator(),Charset.defaultCharset(),true);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * Append the ID that no longer works(exists) to ExpiredIDs.txt file
+	 * to be deleted later from the Birthdays&IDs.txt file
+	 * @param id The ID of the student
+	 */
+	public void updateExpiredFile(String id) {
+		File expiredFile = new File("C:/Users/Sohaib/Desktop/Debug Images/ExpiredIDs.txt");
+		try {
+			FileUtils.writeStringToFile(expiredFile,id+System.lineSeparator(),Charset.defaultCharset(),true);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
