@@ -19,7 +19,7 @@ public class StudentUtils {
 	private static Deque<String> knownBirthdays = new ArrayDeque<>();
 	private static Deque<String> expiredIDs = new ArrayDeque<>();
 	public static String[] birthdays = {"1990","1991","1992","1993","1994","1995","1996","1997","1998","1999","2000","2001"};
-
+//don't forget to increase the year every semester
 	private StudentUtils() {
 	}
 	/**
@@ -30,10 +30,10 @@ public class StudentUtils {
 	public static void init() {
 		loadIDsAndBirthdays();
 		getExpiredIDsFromFile();
-		int term = 172001;//put the number of the semester you want to start from
+		int term = 182001;//put the number of the semester you want to start from
 		int limit = term+499;
-		for(int loop = 1; loop <= 2 ; loop++) {//put the number of semesters untill the last one
-			for(; term <= limit; term++) {
+		for(int loop = 1; loop <= 1 ; loop++) {//put the number of semesters until the last one
+			for(; term <= limit; term++) {//update2019I am just looping once now since I only want one new semester.
 				String id = String.valueOf(term);
 				if(!(knownIDs.contains(id)||expiredIDs.contains(id)))
 					IDs.add(id);

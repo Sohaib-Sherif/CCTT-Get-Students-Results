@@ -23,7 +23,7 @@ import org.openqa.selenium.*;
 public class GrabEm {
 	private static final String URL = "http://cctt.edu.ly/result/index.php";
 	//change the folder name every semester
-	private static final String DESKTOP_FOLDER = "/Users/Sohaib/Desktop/Debug Images/نتيجة ربيع 2018/";
+	private static final String DESKTOP_FOLDER = "/Users/Sohaib/Desktop/Debug Images/نتيجة خريف 2018/";
 	private WebDriver driver;
 	private static StudentData student = StudentData.getInstance();
 	private WebElement birthdayElement;

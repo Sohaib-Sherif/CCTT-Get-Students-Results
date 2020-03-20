@@ -21,7 +21,7 @@ public class DBUtils {
 	private static List<String> SUBJECTNAME = new ArrayList<>();
 	// add a year خريف2017 column to the table.
 	//Done, but should be changed each semester to match the term name.
-	private static String TERM ="ربيع 2018";//could have just inserted it as a string right in the method below
+	private static String TERM ="خريف 2018";//could have just inserted it as a string right in the method below
 
 	
 	public static void updateStudentTable() {
